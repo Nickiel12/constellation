@@ -1,0 +1,20 @@
+Main -- the main thing
+| 
+-- resources_register_include
+|   | 
+|   - build.rs complied targets
+|       |
+|       - source_dir
+|           |
+|           - resources
+|               |
+|               - resources.gresource.xml - directs which file goes to which resource
+|               |  |
+|               |  - reference to window.ui
+|               | 
+|               -  window.ui - an xml file that is basically an html file. 
+- window
+    |
+    - mod.rs - defines the actual functions
+    |
+    - impl.rs - holds the implementations of the widgets
