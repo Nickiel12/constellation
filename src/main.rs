@@ -1,8 +1,10 @@
 mod window;
+mod node_button;
 
 use gtk::gdk::Display;
-use gtk::{prelude::*, CssProvider, StyleContext};
+use gtk::{prelude::*, CssProvider, StyleContext, ApplicationWindow};
 use gtk::{gio, Application};
+use node_button::ConstellationNodeButton;
 use window::Window;
 
 const APP_ID: &str = "org.galaxymenu.constellation";
@@ -26,11 +28,34 @@ fn main() {
     // Run the application
     app.run();
 }
+
 fn build_ui(app: &Application) {
     // Create new window and present it
     let window = Window::new(app);
     window.present();
 }
+/*
+
+fn build_ui(app: &Application) {
+    // Create a button
+    let button = ConstellationNodeButton::with_label("Press me!");
+    button.set_margin_top(12);
+    button.set_margin_bottom(12);
+    button.set_margin_start(12);
+    button.set_margin_end(12);
+    
+    // Create a window
+    let window = ApplicationWindow::builder()
+        .application(app)
+        .title("My GTK App")
+        .child(&button)
+        .build();
+
+    // Present window
+    window.present();
+}
+
+*/
 
 fn load_css() {
     // Load the CSS file and add it to the provider

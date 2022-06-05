@@ -3,13 +3,15 @@ use gtk::prelude::*;
 use gtk::subclass::prelude::*;
 use gtk::{glib, Button, CompositeTemplate};
 
+use super::super::node_button::ConstellationNodeButton;
+
 // Object holding the state
 // template uses magic for the path (please advise)
 #[derive(CompositeTemplate, Default)]
 #[template(resource = "/org/galaxymenu/window.ui")]
 pub struct Window {
     #[template_child]
-    pub button: TemplateChild<Button>,
+    pub button: TemplateChild<ConstellationNodeButton>,
 }
 
 // The central trait for subclassing a GObject
