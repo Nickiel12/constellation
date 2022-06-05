@@ -12,7 +12,7 @@ fn main() {
     gio::resources_register_include!("templates_main.gresource")
         .expect("Failed to register resources.");
 
-    // Create a new application
+    // Create a new application tmp
     let app = Application::builder().application_id(APP_ID).build();
 
     app.connect_startup(|_| load_css());

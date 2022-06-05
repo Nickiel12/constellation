@@ -3,7 +3,4 @@
   <gresource prefix="/org/galaxymenu/">
     <file compressed="true" preprocess="xml-stripblanks">window.ui</file>
   </gresource>
-  <gresource prefix="/org/galaxymenu/widgets/">
-    <file compressed="true" preprocess="xml-stripblanks">ConstellationNoteButton.ui</file>
-  </gresource>
 </gresources>
