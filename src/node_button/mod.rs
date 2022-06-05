@@ -13,6 +13,10 @@ impl ConstellationNodeButton {
     pub fn new() -> Self {
         Object::new(&[]).expect("Failed to create `ConstellationNodeButton`.")
     }
+    
+    pub fn with_label(label: &str) -> Self {
+        Object::new(&[("label", &label)]).expect("Failed to create `CustomButton`.")
+    }
 }
 
 impl Default for ConstellationNodeButton {
