@@ -1,7 +1,7 @@
 use glib::subclass::InitializingObject;
 use gtk::prelude::*;
 use gtk::subclass::prelude::*;
-use gtk::{glib, Button, CompositeTemplate};
+use gtk::{glib, CompositeTemplate};
 
 use super::super::node_button::ConstellationNodeButton;
 
@@ -10,6 +10,7 @@ use super::super::node_button::ConstellationNodeButton;
 #[derive(CompositeTemplate, Default)]
 #[template(resource = "/org/galaxymenu/window.ui")]
 pub struct Window {
+    // Note: this type is the important part that defines which type of button is expected in the template
     #[template_child]
     pub button: TemplateChild<ConstellationNodeButton>,
 }
