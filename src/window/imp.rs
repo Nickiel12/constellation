@@ -6,7 +6,7 @@ use gtk::{glib, Button, CompositeTemplate};
 // Object holding the state
 // template uses magic for the path (please advise)
 #[derive(CompositeTemplate, Default)]
-#[template(resource = "/org/gtk-rs/window.ui")]
+#[template(resource = "/org/galaxymenu/window.ui")]
 pub struct Window {
     #[template_child]
     pub button: TemplateChild<Button>,
