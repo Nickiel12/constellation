@@ -2,7 +2,7 @@ mod window;
 mod node_button;
 
 use gtk::gdk::Display;
-use gtk::{prelude::*, CssProvider, StyleContext};
+use gtk::{prelude::*, CssProvider, StyleContext, Button, ApplicationWindow};
 use gtk::{gio, Application};
 use window::Window;
 
@@ -27,10 +27,68 @@ fn main() {
     // Run the application
     app.run();
 }
-
+/*
 fn build_ui(app: &Application) {
     // Create new window and present it
     let window = Window::new(app);
+    window.present();
+}
+*/
+
+fn spacer() -> gtk::Label {
+    gtk::Label::builder()
+        .label(" ")
+        .build()
+}
+
+fn build_ui(app: &Application) {
+    // Create a button with label and margins
+    let button = Button::builder()
+        .label("Press me!")
+        /*
+        .margin_top(12)
+        .margin_bottom(12)
+        .margin_start(12)
+        .margin_end(12)
+        */
+        .build();
+
+        let button2 = Button::builder()
+        .label("Press me!")
+        /*
+        .margin_top(12)
+        .margin_bottom(12)
+        .margin_start(12)
+        .margin_end(12)
+        */
+        .build();
+
+    // Connect to "clicked" signal of `button`
+    button.connect_clicked(move |button| {
+        // Set the label to "Hello World!" after the button has been clicked on
+        button.set_label("Hello World          !");
+    });
+
+    let grid = gtk::Grid::builder()
+        .row_homogeneous(true)
+        .column_homogeneous(true)
+        .halign(gtk::Align::Center)
+        .valign(gtk::Align::Center)
+        .build();
+
+    grid.attach(&button, 0, 0, 1, 1);
+    grid.attach(&spacer(), 1, 0, 1, 1);
+    grid.attach(&spacer(), 0, 1, 1, 1);
+    grid.attach(&button2, 1, 1, 1, 1);
+
+    // Create a window
+    let window = ApplicationWindow::builder()
+        .application(app)
+        .title("My GTK App")
+        .child(&grid)
+        .build();
+
+    // Present window
     window.present();
 }
 
